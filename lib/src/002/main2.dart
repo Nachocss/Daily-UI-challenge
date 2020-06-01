@@ -47,6 +47,7 @@ class _CreditCardState extends State<CreditCard> {
   final _expiration_controller = TextEditingController(text: "07/22");
   final _number_controller = TextEditingController(text: "4599 6584 4412 2101");
   final _security_controller = TextEditingController(text: "310");
+  ScrollController scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -89,17 +90,34 @@ class _CreditCardState extends State<CreditCard> {
                               print(value);
                             },
                           ),*/
-           //               ListView(
-             //             padding: const EdgeInsets.all(8),
-                 //         children: <Widget>[
-                             _inputText("Name", _name_controller),
-                            _inputText("Card number", _number_controller),
-                            _inputText("Expiration date", _expiration_controller),
-                            _inputText("Security code", _security_controller),
-               //           ],
-                   //       ),
+                          Container(
+                            height: MediaQuery.of(context).size.height - 400,
+                            child: ListView(
+                              controller: scrollController,
+                              scrollDirection: Axis.vertical,
+                              children: <Widget>[
+                                _inputText(
+                                    "Name", _name_controller, scrollController),
+                                // Spacer(flex: 2),
+                                _inputText("Card number", _number_controller,
+                                    scrollController),
+                                _inputText("Expiration date",
+                                    _expiration_controller, scrollController),
+                                _inputText("Security code",
+                                    _security_controller, scrollController),
+                                Text(
+                                  "",
+                                  style: TextStyle(height: 15),
+                                ),
+                                //  Spacer(flex: 2),
+                              ],
+                            ),
+                          ),
                           RaisedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              creditCardBloc.add(OverviewFocus());
+                            },
+                            color: Colors.transparent,
                             textColor: Colors.white,
                             padding: const EdgeInsets.all(0.0),
                             child: Container(
@@ -130,7 +148,8 @@ class _CreditCardState extends State<CreditCard> {
     );
   }
 
-  _inputText(String labelText, TextEditingController controller) {
+  _inputText(String labelText, TextEditingController controller,
+      ScrollController scrollController) {
     return Padding(
       padding: EdgeInsets.only(bottom: 16),
       child: TextFormField(
@@ -150,21 +169,25 @@ class _CreditCardState extends State<CreditCard> {
           switch (labelText) {
             case "Name":
               creditCardBloc.add(CardholderNameFocus());
+              scrollController.jumpTo(0);
               break;
-            case "Card Number":
+            case "Card number":
               creditCardBloc.add(CardNumberFocus());
+              scrollController.jumpTo(116);
               break;
             case "Expiration date":
               creditCardBloc.add(ExpirationDateFocus());
+              scrollController.jumpTo(173);
               break;
             case "Security code":
               creditCardBloc.add(SecurityCodeFocus());
+              scrollController.jumpTo(230);
               break;
           }
         },
-     //   onFieldSubmitted: (x) => creditCardBloc.add(OverviewFocus()),
-     //   onSaved: (x) => creditCardBloc.add(OverviewFocus()),
-     //   onEditingComplete: () => creditCardBloc.add(OverviewFocus()),
+        //   onFieldSubmitted: (x) => creditCardBloc.add(OverviewFocus()),
+        //   onSaved: (x) => creditCardBloc.add(OverviewFocus()),
+        //   onEditingComplete: () => creditCardBloc.add(OverviewFocus()),
       ),
     );
   }
@@ -211,11 +234,12 @@ class _CreditCardState extends State<CreditCard> {
                         padding: EdgeInsets.only(left: 30),
                         height: 40,
                         width: 80,
-                        child: DecoratedBox(
+                        child: Image.asset("assets/002/chip.png")
+                      /*  DecoratedBox(
                           decoration: BoxDecoration(color: Colors.yellow[100]),
-                        ),
+                        ),*/
                       ),
-                    ), //contactless stuff of the cards
+                    ), //chip
                     Padding(
                       padding: EdgeInsets.only(left: 128),
                       child: Container(
@@ -250,9 +274,20 @@ class _CreditCardState extends State<CreditCard> {
                         child: NamePreview(
                             text: _name_controller.text /*"JHON BLOW"*/),
                         /*Text(
-                          "JHON BLOW",
+                            "JHON BLOW",
+                            style: TextStyle(color: Colors.white70, fontSize: 20),
+                          ),*/
+                      ),
+                    ), // Name
+                    Spacer(flex: 4),
+                    Padding(
+                      padding: EdgeInsets.only(top: 6, bottom: 6, right: 55, ),
+                      child: Container(
+                        padding: EdgeInsets.only(left: 20),
+                        child: Text(
+                          "310",
                           style: TextStyle(color: Colors.white70, fontSize: 20),
-                        ),*/
+                        ),
                       ),
                     ), // Name
                   ],

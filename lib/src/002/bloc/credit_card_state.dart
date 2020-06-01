@@ -30,9 +30,9 @@ class FocusingOverview extends CreditCardState {
 }
 
 class FocusingCardNumber extends CreditCardState {
-  final double x = 0.0;
-  final double y = 0.0;
-  final double scale = 3.0;
+  final double x = 70.0;
+  final double y = 00.0;
+  final double scale = 1.8;
 
   FocusingCardNumber() {
     super.x = x;
