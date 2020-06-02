@@ -1,32 +1,39 @@
 import 'package:daily_ui_challenge/simple_bloc_delegate.dart';
-import 'package:daily_ui_challenge/src/001/main.dart';
+import 'package:daily_ui_challenge/src/001/main1.dart';
 import 'package:daily_ui_challenge/src/002/main2.dart';
+import 'package:daily_ui_challenge/src/003/main3.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
- // BlocSupervisor.delegate = SimpleBlocDelegate();
-  runApp(MyApp());
+  runApp(MyApp(
+      ));
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  const MyApp({
+    Key key,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    //creditCardMain();
+   // List<Widget> challengeButtons = _loadDailyChallenges(context);
+
     return MaterialApp(
       title: 'Daily UI challenge',
       debugShowCheckedModeBanner: false,
       home:
-      CreditCard(),
-      //SignUp(),
-      // HomePage(),
+      //Day001(),
+      //Day002(),
+      Day003(),
+      // ListOfChallengesWIP(),
     );
   }
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key key}) : super(key: key);
+class ListOfChallengesWIP extends StatelessWidget {
+  const ListOfChallengesWIP({
+    Key key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,10 +44,29 @@ class HomePage extends StatelessWidget {
         ),
         body: Container(
           child: Column(
-            children: <Widget>[],
+            children: <Widget>[
+              Text("If you see this, the widget is not completed yet..")
+            ],
           ),
         ),
       ),
     );
   }
+}
+
+// Current approach can't call the other classes correctly
+List<Widget> _loadDailyChallenges(BuildContext context) {
+  List<Widget> challengeButtons = List();
+  challengeButtons.add(RaisedButton(
+    onPressed: () => Navigator.push(
+        context, MaterialPageRoute(builder: (context) => Day001())),
+    child: Text("Day 001"),
+  ));
+
+  challengeButtons.add(RaisedButton(
+    onPressed: () => Day002(),
+    child: Text("Day 002"),
+  ));
+
+  return challengeButtons;
 }

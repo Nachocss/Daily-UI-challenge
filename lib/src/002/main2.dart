@@ -1,47 +1,21 @@
-import 'package:daily_ui_challenge/simple_bloc_delegate.dart';
 import 'package:daily_ui_challenge/src/002/bloc/credit_card_bloc.dart';
 import 'package:daily_ui_challenge/src/002/bloc/credit_card_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zoom_widget/zoom_widget.dart';
 
 import 'bloc/bloc.dart';
 
-/*
-void creditCardMain() {
-  BlocSupervisor.delegate = SimpleBlocDelegate();
-  runApp(MyCreditCard());
-}*/
 
-class MyCreditCard extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    BlocSupervisor.delegate = SimpleBlocDelegate();
-    return MaterialApp(
-      title: 'Daily UI challenge',
-      debugShowCheckedModeBanner: false,
-      home: BlocProvider(
-        create: (context) => CreditCardBloc(),
-        child: CreditCard(),
-      ),
-      //CreditCard(),
-      //SignUp(),
-      // HomePage(),
-    );
-  }
-}
-
-class CreditCard extends StatefulWidget {
-  CreditCard({
+class Day002 extends StatefulWidget {
+  Day002({
     Key key,
   }) : super(key: key);
 
   @override
-  _CreditCardState createState() => _CreditCardState();
+  _Day002State createState() => _Day002State();
 }
 
-class _CreditCardState extends State<CreditCard> {
+class _Day002State extends State<Day002> {
   CreditCardBloc creditCardBloc = CreditCardBloc();
   final _name_controller = TextEditingController(text: "John Wilson");
   final _expiration_controller = TextEditingController(text: "07/22");

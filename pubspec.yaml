@@ -26,6 +26,9 @@ dependencies:
   flutter_bloc: ^4.0.0
   equatable: ^1.1.1
   zoom_widget: ^0.1.3
+  sensors: ^0.4.2
+  #sensors: ^0.4.2+2
+  #awareframework_accelerometer: ^0.0.8
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -35,7 +38,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-    
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -53,6 +56,7 @@ flutter:
     - assets/
     - assets/001/
     - assets/002/
+    - assets/003/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
