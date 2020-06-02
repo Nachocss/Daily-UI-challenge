@@ -16,6 +16,7 @@ dependencies:
   equatable: ^1.1.1
   #sensors: ^0.4.2+2
   #awareframework_accelerometer: ^0.0.8
+  auto_size_text: ^2.1.0
 
 
   cupertino_icons: ^0.1.3

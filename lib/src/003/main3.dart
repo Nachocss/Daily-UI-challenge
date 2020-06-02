@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'dart:math';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 /*
@@ -16,51 +18,90 @@ class Day003 extends StatefulWidget {
 }
 
 class _Day003State extends State<Day003> {
-  List<double> _gyroscopeValues;
-   List<StreamSubscription<dynamic>> _streamSubscriptions =
-      <StreamSubscription<dynamic>>[];
-
   @override
   Widget build(BuildContext context) {
-    final List<String> gyroscope =
-        _gyroscopeValues?.map((double v) => v.toStringAsFixed(1))?.toList();
-    return Container(
-      child: Text(gyroscope.toString()),
+    return MaterialApp(
+      title: 'Daily UI challenge',
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/003/bg.JPG"),
+              fit: BoxFit.cover,
+              colorFilter: ColorFilter.mode(
+                  Colors.black.withOpacity(0.5), BlendMode.dstATop),
+            ),
+          ),
+          child: SafeArea(
+            top: true,
+            child: SizedBox.expand(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: (Colors.black.withOpacity(0.3)),
+                ),
+                child: Column(
+                  children: <Widget>[
+                    Spacer(
+                      flex: 1,
+                    ),
+                    Expanded(
+                      flex: 4,
+                      child: Image.asset(
+                        "assets/003/logo.png",
+                        height: 3,
+                      ),
+                    ),
+                    Spacer(
+                      flex: 2,
+                    ),
+                    Flexible(
+                      flex: 5,
+                      child: SignInButton(),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Text("\n\nSign in with you Email", style: TextStyle(color: Colors.white,),),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 
   @override
   void initState() {
     super.initState();
-    /*_streamSubscriptions.add(gyroscopeEvents.listen((GyroscopeEvent event) {
-      setState(() {
-        _gyroscopeValues = <double>[event.x, event.y, event.z];
-      });
-    }));*/
   }
 }
 
-/*
+class SignInButton extends StatelessWidget {
+  const SignInButton({Key key}) : super(key: key);
 
-class Day003 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    BlocSupervisor.delegate = SimpleBlocDelegate();
-    return MaterialApp(
-      title: 'Daily UI challenge',
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/003/bg.JPG"),
-                fit: BoxFit.cover,
-                colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.5), BlendMode.dstATop),
-              ),
-            ),
-            child: null),
+    return Container(
+      width: 320,
+      height: 58,
+      decoration: BoxDecoration(
+        color: (Colors.white),
+        borderRadius: BorderRadius.all(Radius.circular(20)),
+      ),
+      alignment: Alignment.center,
+      child: ListTile(
+        dense: true,
+        leading: Image.asset(
+          "assets/003/alipay_logo.png",
+        ),
+        title: Text(
+          "Sign in with Alipay",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+        ),
       ),
     );
   }
 }
-*/
