@@ -22,9 +22,9 @@ class MyApp extends StatelessWidget {
       title: 'Daily UI challenge',
       debugShowCheckedModeBanner: false,
       home:
-      //Day001(),
+      Day001(),
       //Day002(),
-      Day003(),
+      //Day003(),
       // ListOfChallengesWIP(),
     );
   }
