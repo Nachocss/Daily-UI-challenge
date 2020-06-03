@@ -61,7 +61,7 @@ class _Day003State extends State<Day003> {
                     ),
                     Expanded(
                       flex: 1,
-                      child: Text("\n\nSign in with you Email", style: TextStyle(color: Colors.white,),),
+                      child: Text("\n\nSign in with your Email", style: TextStyle(color: Colors.white,),),
                     ),
                   ],
                 ),

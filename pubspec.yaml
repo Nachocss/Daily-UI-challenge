@@ -17,6 +17,7 @@ dependencies:
   #sensors: ^0.4.2+2
   #awareframework_accelerometer: ^0.0.8
   auto_size_text: ^2.1.0
+  gradient_app_bar: ^0.0.1
 
 
   cupertino_icons: ^0.1.3
