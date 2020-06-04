@@ -1,14 +1,4 @@
-import 'dart:async';
-import 'dart:math';
-
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-
-/*
-void creditCardMain() {
-  BlocSupervisor.delegate = SimpleBlocDelegate();
-  runApp(MyCreditCard());
-}*/
 
 class Day003 extends StatefulWidget {
   Day003({Key key}) : super(key: key);
