@@ -15,3 +15,6 @@ What's the main focus? Is it for a book, an album, a mobile app, a product? Cons
 
 ## Day 004
 Design a calculator. Standard, scientific, or specialty calculator for something such as a mortgage? Is it for a phone, a tablet, a web app?
+
+## Day 005
+Design an app icon. What best represents the brand or product? Or is it incredibly unique? Does it look great at a distance and does it stand out when put on your home screen alongside other apps?

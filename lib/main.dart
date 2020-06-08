@@ -4,6 +4,7 @@ import 'package:daily_ui_challenge/src/002/main2.dart';
 import 'package:daily_ui_challenge/src/003/main3.dart';
 import 'package:daily_ui_challenge/src/004/main4.dart';
 import 'package:daily_ui_challenge/src/005/main5.dart';
+import 'package:daily_ui_challenge/src/006/main6.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -27,8 +28,9 @@ class MyApp extends StatelessWidget {
       //Day001(),
       //Day002(),
       //Day003(),
-   //   Day004(),
-      Day005(),
+      //Day004(),
+      //Day005(),
+      Day006(),
       // ListOfChallengesWIP(),
     );
   }
